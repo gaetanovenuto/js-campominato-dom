@@ -1,19 +1,70 @@
 /*************************************************** 
     HEADER SECTION
 ****************************************************/
+header img {
+    width: 100px;
+    height: 100px;
+}
 
-
+#play-button, #difficulty {
+    border-radius: 5px;
+}
 
 /*************************************************** 
     MAIN SECTION
 ****************************************************/
 
+main {
+    height: calc(100vh - 220px);
+}
 
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#grid-container > * {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.easy {
+    width: calc(100% / 10);
+    height: 67px;
+}
+
+.intermediate {
+    width: calc(100% / 9);
+    height: 75px;
+}
+
+.hard {
+    width: calc(100% / 7);
+    height: 95px;
+}
 
 /*************************************************** 
     FOOTER SECTION
 ****************************************************/
 
+footer {
+    height: 100px;
+}
+
+footer p {
+    margin-left: 25px;
+}
+
+footer i, footer a {
+    margin: 0 10px;
+}
 
 
 
@@ -76,3 +127,4 @@
 }
 
 
+/* NON COPIARE */

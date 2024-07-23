@@ -6,6 +6,15 @@
     BACKGROUND COLORS
 **********************/
 
+.bg-aquamarine {
+    background-color: #7FFFD4;
+}
+
+.bg-lightcoral {
+    background-color: lightcoral;
+    transition: all .2s ease-in-out;
+}
+
 /********************* 
     TEXT
 **********************/
@@ -13,3 +22,5 @@
 /********************* 
     CONTAINERS
 **********************/
+
+/* NON COPIARE */
