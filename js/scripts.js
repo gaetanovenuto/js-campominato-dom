@@ -2,16 +2,22 @@ const playButton = document.getElementById('play-button');
 
 playButton.addEventListener('click', game)
 
+
+const bombArray = [];
+
+let scoreArray = [];
+    
+let cellsNumber = 100;
+
+const myContainer = document.getElementById('grid-container');
     
 
-function game() {     
-    const myContainer = document.getElementById('grid-container');
+function game() {    
+    scoreArray = [];
 
     myContainer.style.opacity = '1';
 
     const difficultySelect = document.getElementById('difficulty');
-    
-    let cellsNumber = 100;
 
     if (difficultySelect.value == '2') {
         cellsNumber = 81;
@@ -24,8 +30,6 @@ function game() {
     myContainer.innerHTML = '';
 
     let computerNumber = 0;
-
-    const bombArray = [];
 
     let k = 1;
 
@@ -49,8 +53,6 @@ function game() {
     const restart = document.getElementById('restart');
 
     restart.style.display = 'none';
-
-    const scoreArray = [];
 
     const score = document.getElementById('score');
 
@@ -76,37 +78,7 @@ function game() {
             singleCell.classList.add('hard');
         }
 
-        singleCell.addEventListener('click', cellClick)    
-
-        function cellClick() {
-            if (bombArray.includes(i)) {
-                singleCell.classList.add('bomb');
-                result.innerHTML = 'Hai perso!' ;
-                restart.style.display = 'block';
-                result.style.display = 'block';
-                myContainer.style.opacity = '0.1';
-                restart.addEventListener('click', game);
-                singleCell.replaceWith(singleCell.cloneNode(true));
-                
-            }
-
-            else {
-
-                if (!singleCell.classList.contains('safe')) {
-                    singleCell.classList.add('safe');
-                    scoreArray.push(i);
-                }
-          
-                score.innerHTML = parseInt(scoreArray.length);
-                if (scoreArray.lenght == cellsNumber - 16) {
-                    result.innerHTML = 'Hai vinto!' ;
-                    restart.style.display = 'block';
-                    result.style.display = 'block';
-                }
-            }
-
-        score.style.display = 'block'
-    }
+        singleCell.addEventListener('click', cellClick)   
     }
 
     function getRndInteger(min, max) {
@@ -116,3 +88,36 @@ function game() {
 
 
 
+ 
+
+function cellClick() {
+    console.log('CLICK');
+    const i = parseInt(this.innerText);
+    if (bombArray.includes(i)) {
+        this.classList.add('bomb');
+        result.innerHTML = 'Hai perso!' ;
+        restart.style.display = 'block';
+        result.style.display = 'block';
+        myContainer.style.opacity = '0.3';
+        restart.addEventListener('click', game);
+        this.replaceWith(this.cloneNode(true)); 
+    }
+
+    else {
+        if (!this.classList.contains('safe')) {
+            this.classList.add('safe');
+            scoreArray.push(i);
+        }
+  
+        score.innerHTML = parseInt(scoreArray.length);
+        if (scoreArray.lenght == parseInt(cellsNumber - 16)) {
+            result.innerHTML = 'Hai vinto!';
+            restart.style.display = 'block';
+            result.style.display = 'block';
+        }
+    }
+
+    score.style.display = 'block';
+
+
+}
