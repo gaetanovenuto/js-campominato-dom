@@ -10,9 +10,14 @@
     background-color: #7FFFD4;
 }
 
-.bg-lightcoral {
-    background-color: lightcoral;
+.safe {
+    background-color: rgba(9, 160, 9, 0.692);
     transition: all .2s ease-in-out;
+}
+
+.bomb {
+    background-color: rgba(255, 0, 0, 0.692);
+    transition: all 1s ease-in-out;
 }
 
 /********************* 

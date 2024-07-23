@@ -66,6 +66,19 @@ footer i, footer a {
     margin: 0 10px;
 }
 
+#restart {
+    display: none;
+    margin: 0 auto;
+}
+
+#result {
+    color: red;
+    margin-left: 450px;
+}
+
+#score-box {
+    margin-right: 50px;
+}
 
 
 
