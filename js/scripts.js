@@ -86,7 +86,7 @@ function game() {
                 result.style.display = 'block';
                 myContainer.style.opacity = '0.1';
                 restart.addEventListener('click', game);
-                this.removeEventListener('click', cellClick);
+                singleCell.replaceWith(singleCell.cloneNode(true));
                 
             }
 
