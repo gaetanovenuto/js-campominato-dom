@@ -76,32 +76,37 @@ function game() {
             singleCell.classList.add('hard');
         }
 
-        singleCell.addEventListener('click',
-            function() {
-                if (bombArray.includes(i)) {
-                    singleCell.classList.add('bomb');
-                    result.innerHTML = 'Hai perso!' ;
-                    restart.style.display = 'block';
-                    result.style.display = 'block';
-                    myContainer.style.opacity = '0.1';
-                    restart.addEventListener('click', game);
-                    
-                }
+        singleCell.addEventListener('click', cellClick)    
 
-                else {
+        function cellClick() {
+            if (bombArray.includes(i)) {
+                singleCell.classList.add('bomb');
+                result.innerHTML = 'Hai perso!' ;
+                restart.style.display = 'block';
+                result.style.display = 'block';
+                myContainer.style.opacity = '0.1';
+                restart.addEventListener('click', game);
+                this.removeEventListener('click', cellClick);
+                
+            }
+
+            else {
+
+                if (!singleCell.classList.contains('safe')) {
                     singleCell.classList.add('safe');
                     scoreArray.push(i);
-                    score.innerHTML = parseInt(scoreArray.length);
-                    if (scoreArray.lenght == cellsNumber - 16) {
-                        result.innerHTML = 'Hai vinto!' ;
-                        restart.style.display = 'block';
-                        result.style.display = 'block';
-                    }
                 }
-
-            score.style.display = 'block'
+          
+                score.innerHTML = parseInt(scoreArray.length);
+                if (scoreArray.lenght == cellsNumber - 16) {
+                    result.innerHTML = 'Hai vinto!' ;
+                    restart.style.display = 'block';
+                    result.style.display = 'block';
+                }
             }
-        )    
+
+        score.style.display = 'block'
+    }
     }
 
     function getRndInteger(min, max) {
